@@ -1,0 +1,25 @@
+# Trained model artifacts (large binary files — run `docker compose --profile train run --rm train` to generate)
+backend/model/*.joblib
+backend/model/metrics.json
+
+# Downloaded training dataset (auto-downloaded during training)
+backend/data/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

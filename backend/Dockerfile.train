@@ -1,0 +1,12 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY train_requirements.txt .
+RUN pip install --no-cache-dir -r train_requirements.txt
+
+COPY features.py .
+COPY train.py .
+
+# Outputs: model/xgb_pipeline.joblib and model/metrics.json
+CMD ["python", "train.py"]

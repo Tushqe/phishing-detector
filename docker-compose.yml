@@ -1,0 +1,36 @@
+services:
+
+  # ── Step 1: Run once to train the model ───────────────────────────────────
+  train:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.train
+    volumes:
+      - ./backend/model:/app/model
+      - ./backend/data:/app/data     # cache downloaded dataset
+    profiles: ["train"]   # only runs with: docker compose --profile train run train
+
+  # ── Step 2: Backend API ────────────────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend/model:/app/model:ro  # read the trained model
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── Step 3: Frontend ───────────────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
