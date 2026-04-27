@@ -3,6 +3,9 @@
 ML-powered phishing URL classifier with a React dashboard and FastAPI backend.
 Trains on the real [PhiUSIIL Phishing URL Dataset](https://github.com/elaaatif/DATA-MINING-PhiUSIIL-Phishing-URL) and selects the best classifier automatically.
 All dependencies run inside Docker — nothing is installed globally.
+<img width="1920" height="986" alt="Screenshot 2026-04-27 at 14 48 20" src="https://github.com/user-attachments/assets/61befb34-4448-497c-9016-1769370ea4d5" />
+<img width="1920" height="988" alt="Screenshot 2026-04-27 at 14 48 32" src="https://github.com/user-attachments/assets/b53da607-7e34-42a5-865f-6a98c8958369" />
+<img width="1919" height="991" alt="Screenshot 2026-04-27 at 14 48 43" src="https://github.com/user-attachments/assets/fa466fda-295f-4056-acca-954a5e20d235" />
 
 ---
 
